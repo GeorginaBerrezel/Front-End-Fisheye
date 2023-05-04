@@ -118,3 +118,10 @@ document.onkeydown = function(e) {
         closeModal();
     }
 };
+
+
+// Fonction dupliquer de lightbox.js à voir si on exécute la fonction au click en js ou dans le html
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox'); // balise <div>
+    lightbox.classList.remove("show");
+}
