@@ -6,7 +6,7 @@ export function createPhotographerFactory(photographer, target) {
     link.setAttribute("href", `photographer.html?id=${id}`); /* Je set un "href" + le "lien" de la page html avec l'"id" correspondant au click */
     article.appendChild(link);
     const img = document.createElement('img');
-    img.setAttribute("src", `/assets/photographers/${portrait}`)
+    img.setAttribute("src", `assets/photographers/${portrait}`)
     const h2 = document.createElement('h2');
     h2.textContent = name;
     h2.textContent = city;
