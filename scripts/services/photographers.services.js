@@ -1,5 +1,5 @@
 export function getPhotographers() {
-    return fetch('../data/photographers.json')
+    return fetch('https://georginaberrezel.github.io/Front-End-Fisheye/data/photographers.json')
     .then((response) => {
         return response.json()
     }).then((data) => {
