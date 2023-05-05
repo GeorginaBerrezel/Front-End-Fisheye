@@ -9,6 +9,7 @@ export function createPhotographerFactory(photographer, target) {
     img.setAttribute("src", `/assets/photographers/${portrait}`)
     const h2 = document.createElement('h2');
     h2.textContent = name;
+    h2.textContent = city;
     link.appendChild(img);
     link.appendChild(h2);
     target.appendChild(article);
