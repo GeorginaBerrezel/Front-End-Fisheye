@@ -1,5 +1,5 @@
 export function createPhotographerFactory(photographer, target) {
-    const { name, city, tagline, price, portrait, id } = photographer
+    const { name, city, country, tagline, price, portrait, id } = photographer
 
     const article = document.createElement('article');
     const link = document.createElement("a"); /* Constant link pour créer mon élément "a" (href) qui apparaîtra dans mon DOM*/
@@ -9,9 +9,23 @@ export function createPhotographerFactory(photographer, target) {
     img.setAttribute("src", `assets/photographers/${portrait}`)
     const h2 = document.createElement('h2');
     h2.textContent = name;
-    h2.textContent = city;
+    //CITY
+    const cityH2 = document.createElement('h3');
+    cityH2.textContent = city + ', ' + country;
+
+    //TAGLINE
+    const taglineP = document.createElement('p');
+    taglineP.textContent = tagline;
+
+    //TAGLINE
+    const priceByDay = document.createElement('span');
+    priceByDay.textContent = price + '€ / jour';
+
     link.appendChild(img);
     link.appendChild(h2);
+    link.appendChild(cityH2);
+    link.appendChild(taglineP);
+    link.appendChild(priceByDay);
     target.appendChild(article);
 }
 

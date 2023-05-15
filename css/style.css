@@ -26,6 +26,7 @@ h2 {
 
 a {
     text-decoration: none;
+    text-align: -webkit-center;
 }
 
 .logo {
@@ -51,6 +52,28 @@ a {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.photographer_section article h3 {
+    color: #901C1C;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.photographer_section article p {
+    color: #000000;
+    font-size: 10px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.photographer_section article span {
+    color: #757575;
+    font-size: 9px;
+    font-weight: 400;
 }
 
 .photographer_section article img {
