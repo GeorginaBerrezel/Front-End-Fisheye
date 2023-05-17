@@ -19,6 +19,28 @@ document.addEventListener('keyup', function(e) {
 // filter pour avoir les images qui correspondent à mon bon photographe (id)
 // TO DELETE function georgiGetAll(){
 
+const dropdown = document.querySelector('.dropdown');
+const select = document.querySelector('#filter');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+dropdown?.addEventListener('click', (event) => {
+  dropdownContent.classList.toggle('open');
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    dropdownContent.classList.remove('open');
+    select.blur();
+  }
+});
+
+select.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowUp' && select.selectedIndex > 0) {
+    select.selectedIndex--;
+  } else if (event.key === 'ArrowDown' && select.selectedIndex < select.options.length - 1) {
+    select.selectedIndex++;
+  }
+});
 
 
 
@@ -51,9 +73,9 @@ function displayDataMedia(media, name, photos, photographer) {
     divInformations.className = "informationsContent";
     divInformations.innerHTML = `
         <h2 tabindex="8" class="title">${title}</h2>
-        <div class="likes">
+        <div class="likes" tabindex="8">
             <h2>${likes}</h2>
-            <img tabindex="8" src="assets/heart-solid.svg" style="
+            <img src="assets/heart-solid.svg" style="
             height: 15px;
             width: 18px;
             color: #901C1C;
@@ -73,6 +95,20 @@ function displayDataMedia(media, name, photos, photographer) {
         }
         likesNumber.innerHTML = media.likes;
         displayCta(photos, photographer)
+    });
+
+    const likesDiv = divInformations.querySelector('.likes');
+
+    likesDiv.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowUp') {
+            // Augmenter le nombre de likes lorsque la touche flèche vers le haut est enfoncée
+            media.likes++;
+        } else if (event.key === 'ArrowDown') {
+            // Diminuer le nombre de likes lorsque la touche flèche vers le bas est enfoncée
+            media.likes = Math.max(0, media.likes - 1); // Assurez-vous que le nombre de likes ne devient pas négatif
+        }
+        likesNumber.textContent = media.likes;
+        displayCta(photos, photographer);
     });
 
 

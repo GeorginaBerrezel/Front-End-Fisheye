@@ -94,5 +94,4 @@ export function displayCta(photos, photographer) {
     callToAction.appendChild(cta);
 }
 
-
 export default { createPhotographerFactory, createCurrentPhotographerProfil, displayCta }

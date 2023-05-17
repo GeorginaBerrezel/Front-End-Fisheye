@@ -1,15 +1,25 @@
 const dropdown = document.querySelector('.dropdown');
-dropdown?.addEventListener('click', (event) => {
-    console.log(" Jai cliqué ");
-});
-console.log(dropdown);
+const select = document.querySelector('#filter');
+const dropdownContent = document.querySelector('.dropdown-content');
 
-document.onkeydown = function(e) {
-    e = e || window.event;
-    if (e.keyCode == 27) {
-        // dropdown();
-    }
-};
+dropdown?.addEventListener('click', (event) => {
+  dropdownContent.classList.toggle('open');
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    dropdownContent.classList.remove('open');
+    select.blur();
+  }
+});
+
+select.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowUp' && select.selectedIndex > 0) {
+    select.selectedIndex--;
+  } else if (event.key === 'ArrowDown' && select.selectedIndex < select.options.length - 1) {
+    select.selectedIndex++;
+  }
+});
 
 
 // get element byId
