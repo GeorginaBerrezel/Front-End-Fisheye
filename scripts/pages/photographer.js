@@ -19,28 +19,62 @@ document.addEventListener('keyup', function(e) {
 // filter pour avoir les images qui correspondent à mon bon photographe (id)
 // TO DELETE function georgiGetAll(){
 
-const dropdown = document.querySelector('.dropdown');
-const select = document.querySelector('#filter');
-const dropdownContent = document.querySelector('.dropdown-content');
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+    const dropdownButton = dropdown.querySelector('.dropdown-button');
+    
+    function toggleDropdown(event) {
+      dropdownContent.classList.toggle('open');
+      const expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+      dropdownButton.setAttribute('aria-expanded', !expanded);
+    }
+    
+    dropdown.addEventListener('click', toggleDropdown);
+    
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        dropdownContent.classList.remove('open');
+        dropdownButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+     // Afficher le contenu de la dropdown
+    dropdownButton.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        toggleDropdown(event);
+      }
+    });
+    
+    function afficherContenuDropdown() {
+        const options = dropdownContent.querySelectorAll('li');
+        options.forEach((option) => {
+          console.log(option.textContent);
+        });
+      }
+      
+      afficherContenuDropdown();
+    
+// const dropdown = document.querySelector('.dropdown');
+// const select = document.querySelector('#filter');
+// const dropdownContent = document.querySelector('.dropdown-content');
 
-dropdown?.addEventListener('click', (event) => {
-  dropdownContent.classList.toggle('open');
-});
+// dropdown?.addEventListener('click', (event) => {
+//   dropdownContent.classList.toggle('open');
+// });
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    dropdownContent.classList.remove('open');
-    select.blur();
-  }
-});
+// document.addEventListener('keydown', (event) => {
+//   if (event.key === 'Escape') {
+//     dropdownContent.classList.remove('open');
+//     select.blur();
+//   }
+// });
 
-select.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowUp' && select.selectedIndex > 0) {
-    select.selectedIndex--;
-  } else if (event.key === 'ArrowDown' && select.selectedIndex < select.options.length - 1) {
-    select.selectedIndex++;
-  }
-});
+// select.addEventListener('keydown', (event) => {
+//   if (event.key === 'ArrowUp' && select.selectedIndex > 0) {
+//     select.selectedIndex--;
+//   } else if (event.key === 'ArrowDown' && select.selectedIndex < select.options.length - 1) {
+//     select.selectedIndex++;
+//   }
+// });
 
 
 
@@ -214,3 +248,4 @@ function changeFilter() {
     }
     photographersMedias(currentPhotographerMediasFiltered, currentPhotographer)
 }
+

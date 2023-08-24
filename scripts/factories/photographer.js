@@ -1,25 +1,31 @@
-const dropdown = document.querySelector('.dropdown');
-const select = document.querySelector('#filter');
-const dropdownContent = document.querySelector('.dropdown-content');
+// const dropdownContent = document.querySelector('.dropdown-content');
+// const dropdownButton = document.querySelector('.dropdown-button');
 
-dropdown?.addEventListener('click', (event) => {
-  dropdownContent.classList.toggle('open');
-});
+// function toggleDropdown(event) {
+//   dropdownContent.classList.toggle('open');
+//   const expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+//   dropdownButton.setAttribute('aria-expanded', !expanded);
+// }
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    dropdownContent.classList.remove('open');
-    select.blur();
-  }
-});
+// document.addEventListener('keydown', (event) => {
+//   if (event.key === 'Escape') {
+//     dropdownContent.classList.remove('open');
+//     dropdownButton.setAttribute('aria-expanded', 'false');
+//   }
+// });
 
-select.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowUp' && select.selectedIndex > 0) {
-    select.selectedIndex--;
-  } else if (event.key === 'ArrowDown' && select.selectedIndex < select.options.length - 1) {
-    select.selectedIndex++;
-  }
-});
+// dropdownButton.addEventListener('keydown', (event) => {
+//   if (event.key === 'Enter') {
+//     toggleDropdown(event);
+//   }
+// });
+
+// export default { toggleDropdown }
+
+
+
+
+
 
 
 // get element byId

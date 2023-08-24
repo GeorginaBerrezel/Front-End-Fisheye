@@ -12,11 +12,12 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0 100px;
     padding: 2rem;
-    height: auto;
-    width: auto;
+    text-align: left;
+    margin: 0 5%;
+    gap: 2rem;
 }
+
 .photograph_info {
     width: 33%;
 }
@@ -28,6 +29,24 @@ main {
 
 .tagline p {
     color: #525252;
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+    .photograph-header {
+        flex-direction: column;
+        text-align: center;
+
+    }
+
+    .photograph_info {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .photograph_info h1 {
+        font-size: 3rem;
+    }
 }
 
 
@@ -49,7 +68,7 @@ main {
     display: flex;
   }
 
-select {
+.dropdown-button {
     background-color: #901C1C;
     color: white;
     padding: 11px;
@@ -146,16 +165,17 @@ select {
     color: #000000;
 }
 
+
 /*THUMBNAIL*/
 
 .thumbnail {
-    margin: 0 100px;
+    margin: 0 5%; /* Ajustement pour les petits écrans */
 }
 
 .thumbnail_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 95px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Utilisation de "auto-fit" pour les colonnes adaptables */
+    gap: 5%; /* Ajustement pour les petits écrans */
 }
 
 .thumbnail_section article {
@@ -165,7 +185,7 @@ select {
     align-items: center;
     flex-direction: column;
     max-height: 400px;
-    width: 400px;
+    width: 100%; /* Ajustement pour occuper la largeur disponible */
 }
 
 .thumbnail_section article h2 {
@@ -176,16 +196,17 @@ select {
 .thumbnail_section article img {
     border-radius: 5px;
     object-fit: cover;
-    height: 80%;
+    max-height: 80%; /* Ajustement pour les petites hauteurs */
     width: 100%;
 }
 
 .thumbnail_section article video {
     border-radius: 5px;
     object-fit: cover;
-    height: 80%;
+    max-height: 80%; /* Ajustement pour les petites hauteurs */
     width: 100%;
 }
+
 
 /*MODAL*/
 

@@ -24,10 +24,18 @@ h2 {
     color: #901C1C;
 }
 
+
 a {
     text-decoration: none;
     text-align: -webkit-center;
+    color: #D3573C; /* Ajoutez une couleur pour les liens */
+    transition: color 0.3s ease-in-out; /* Ajoutez une transition pour une interaction fluide */
 }
+
+a:hover {
+    color: #901C1C; /* Changez la couleur au survol */
+}
+
 
 .logo {
     height: 50px;
@@ -81,4 +89,30 @@ a {
     object-fit: cover;
     height: 200px;
     width: 200px;
+}
+
+/* Ajoutez ceci pour rendre le header réactif */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+    
+    h1 {
+        margin: 20px 0;
+    }
+    
+    .logo {
+        margin: 20px 0;
+    }
+}
+
+/* Ajoutez ceci pour rendre la section des photographes réactive */
+@media screen and (max-width: 768px) {
+    .photographer_section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 50px;
+    }
 }
